@@ -93,7 +93,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     " }
 
     " signify {
-    " dont overwrite syntastic's gutter stuff
+        " dont overwrite syntastic's gutter stuff
         let g:signify_sign_overwrite = 0
         let g:signify_vcs_list = ['git', 'perforce']
     " }
@@ -135,16 +135,16 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
     " Plugin keybinds {
         " unite {
-        " Like CtrlP
+            " Like CtrlP
             nnoremap <C-p> :Unite file_rec/async<cr>
             nnoremap <C-i> :Unite file_mru<cr>
             nnoremap <leader>/ :Unite grep:.<cr>
             nnoremap <leader>y :Unite history/yank<cr>
             nnoremap <leader>s :Unite -quick-match buffer<cr>
         " }
-        "
+
         " neocomplete {
-        " (these are pretty much the defaults)
+            " (these are pretty much the defaults)
             inoremap <expr><C-g>     neocomplete#undo_completion()
             inoremap <expr><C-l>     neocomplete#complete_common_string()
             " <CR>: close popup and save indent.
@@ -162,15 +162,15 @@ NeoBundleFetch 'Shougo/neobundle.vim'
             inoremap <expr><C-y>  neocomplete#close_popup()
             inoremap <expr><C-e>  neocomplete#cancel_popup()
         " }
-        "
+
         " vimfiler {
             nnoremap <C-k> :VimFilerExplorer<cr>
         " }
-        "
+
         " easymotion {
             let g:EasyMotion_leader_key = '<leader>' 
         " }
-        "
+
         " tcomment {
             " toggle comments
             nnoremap <C-l> :TComment<cr>
