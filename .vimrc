@@ -171,6 +171,12 @@ NeoBundleFetch 'Shougo/neobundle.vim'
             let g:EasyMotion_leader_key = '<leader>' 
         " }
 
+        " syntastic {
+            nnoremap <leader>o :Errors<cr>
+            nnoremap <leader>n :lnext<cr>
+            nnoremap <leader>p :lprev<cr>
+        " }
+
         " tcomment {
             " toggle comments
             nnoremap <C-l> :TComment<cr>
