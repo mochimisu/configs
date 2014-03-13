@@ -43,6 +43,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         NeoBundle 'scrooloose/syntastic'
         " Comment/uncomment
         NeoBundle "tomtom/tcomment_vim"
+        " creat a tmux pane and run a command
+        NeoBundle "benmills/vimux"
     " }
 
     " Colors and looks {
@@ -74,6 +76,13 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         let g:unite_source_history_yank_enable = 1
         let g:unite_prompt='» '
 
+        " if ag in installed, use that
+        if executable('ag')
+            let g:unite_source_grep_command = 'ag'
+            let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+            let g:unite_source_grep_recursive_opt = ''
+        endif
+
         " neocomplete {
             let g:neocomplete#enable_at_startup = 1
             let g:neocomplete#enable_smart_case = 1
@@ -99,11 +108,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     " }
 
     " airline {
-        let g:airline_left_sep = '▶'
-        let g:airline_right_sep = '◀'
-        let g:airline_linecolumn_prefix = '¶ '
-        let g:airline_branch_prefix = '⎇ '
-        let g:airline_paste_symbol = '∥'
+        let g:airline_powerline_fonts = 1
     " }
 
     " syntastic {
@@ -182,18 +187,38 @@ NeoBundleFetch 'Shougo/neobundle.vim'
             nnoremap <C-l> :TComment<cr>
             vnoremap <C-l> :TComment<cr>
         " }
+
+        " vimux {
+            " Prompt for a command to run
+            nnoremap <Leader>vp :VimuxPromptCommand<CR>
+            " Run last command executed by VimuxRunCommand
+            nnoremap <Leader>vl :VimuxRunLastCommand<CR>
+            " Inspect runner pane
+            nnoremap <Leader>vi :VimuxInspectRunner<CR>
+            " Close vim tmux runner opened by VimuxRunCommand
+            nnoremap <Leader>vq :VimuxCloseRunner<CR>
+            " Interrupt any command running in the runner pane
+            nnoremap <Leader>vx :VimuxInterruptRunner<CR>
+        " }
     " }
 
     " vim keybinds {
         " swap ; and : in normal mode
         nnoremap ; :
         nnoremap : ;
+        vnoremap ; :
+        vnoremap : ;
         " what is ex mode even used for
         nnoremap Q <nop>
         " change cwd to cur dir
         nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
         " make backspace make sense
         set backspace=indent,eol,start
+        " copypasta with system clipboard
+        nnoremap <leader>c "+y
+        vnoremap <leader>c "+y
+        nnoremap <leader>v "+p
+        vnoremap <leader>v "+p
     " }
 " }
 
@@ -212,6 +237,16 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         " modelines for per-document settings
         set modeline
         set modelines=3
+        " move backup files to ~/.vim/.backup if possible
+        if isdirectory($HOME . '/.vim/.backup') == 0
+            :silent !mkdir -p ~/.vim/.backup >/dev/null 2>&1
+        endif
+        set backupdir-=.
+        set backupdir+=.
+        set backupdir-=~/
+        set backupdir^=~/.vim/.backup/
+        set backupdir^=./.vim-.backup/
+        set backup
     " }
 
     " indentation {
@@ -271,6 +306,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     endif
     " }
 " }
+
+" machine local vimrc
+if filereadable(expand('~/.lvimrc'))
+    source ~/.lvimrc
+endif
 
 " turn stuff on
 filetype plugin on
