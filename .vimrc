@@ -45,6 +45,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         NeoBundle "tomtom/tcomment_vim"
         " creat a tmux pane and run a command
         NeoBundle "benmills/vimux"
+        " navigate tmux and vim splits seamlessly
+        NeoBundle 'christoomey/vim-tmux-navigator'
     " }
 
     " Colors and looks {
