@@ -52,6 +52,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     " }
 
     " Colors and looks {
+        "Vim syntax file for scss (Sassy CSS)
+        NeoBundle 'cakebaker/scss-syntax.vim'
+        " jade stuff
+        NeoBundle 'digitaltoad/vim-jade'
         " airline status/tabline
         NeoBundle 'bling/vim-airline'
         " color parenthesis
