@@ -10,7 +10,7 @@ set nocompatible
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -47,6 +47,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         NeoBundle "benmills/vimux"
         " navigate tmux and vim splits seamlessly
         NeoBundle 'christoomey/vim-tmux-navigator'
+        " analytics
+        NeoBundle 'wakatime/vim-wakatime'
     " }
 
     " Colors and looks {
@@ -58,8 +60,12 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         NeoBundle 'edkolev/tmuxline.vim'
         " a bunch of color schemes
         NeoBundle 'flazz/vim-colorschemes'
+        " color hex codes
+        NeoBundle 'lilydjwg/colorizer'
     " }
 " }
+
+call neobundle#end()
 
 " Plugin settings {
     " unite {
@@ -95,6 +101,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
                 let g:neocomplete#keyword_patterns = {}
             endif
             let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+            " no preview window
+            set completeopt-=preview
         " }
 
         " vimfiler {
@@ -192,15 +200,15 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
         " vimux {
             " Prompt for a command to run
-            nnoremap <Leader>vp :VimuxPromptCommand<CR>
+            nnoremap <Leader>rc :VimuxPromptCommand<CR>
             " Run last command executed by VimuxRunCommand
-            nnoremap <Leader>vl :VimuxRunLastCommand<CR>
+            nnoremap <Leader>rl :VimuxRunLastCommand<CR>
             " Inspect runner pane
-            nnoremap <Leader>vi :VimuxInspectRunner<CR>
+            nnoremap <Leader>rr   :VimuxInspectRunner<CR>
             " Close vim tmux runner opened by VimuxRunCommand
-            nnoremap <Leader>vq :VimuxCloseRunner<CR>
+            nnoremap <Leader>rq :VimuxCloseRunner<CR>
             " Interrupt any command running in the runner pane
-            nnoremap <Leader>vx :VimuxInterruptRunner<CR>
+            nnoremap <Leader>rx :VimuxInterruptRunner<CR>
         " }
     " }
 
@@ -317,4 +325,7 @@ endif
 " turn stuff on
 filetype plugin on
 filetype indent on
+
+" notify of updates
+NeoBundleCheck
 
