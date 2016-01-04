@@ -51,6 +51,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         NeoBundle 'christoomey/vim-tmux-navigator'
         " analytics
         " NeoBundle 'wakatime/vim-wakatime'
+        " for pep8 python tabbing
+        NeoBundle 'hynek/vim-python-pep8-indent'
     " }
 
     " Colors and looks {
