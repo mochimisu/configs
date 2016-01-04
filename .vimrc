@@ -37,6 +37,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     " Other usability plugins {
         " move around
         NeoBundle 'Lokaltog/vim-easymotion'
+        " camelcase motion
+        NeoBundle 'bkad/CamelCaseMotion'
         " give vcs diffs in the gutter.
         NeoBundle 'mhinz/vim-signify'
         " linting
@@ -48,7 +50,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         " navigate tmux and vim splits seamlessly
         NeoBundle 'christoomey/vim-tmux-navigator'
         " analytics
-        NeoBundle 'wakatime/vim-wakatime'
+        " NeoBundle 'wakatime/vim-wakatime'
     " }
 
     " Colors and looks {
@@ -184,6 +186,15 @@ call neobundle#end()
 
         " easymotion {
             let g:EasyMotion_leader_key = '<leader>' 
+        " }
+
+        " CamelCaseMotion {
+            map <silent> w <Plug>CamelCaseMotion_w
+            map <silent> b <Plug>CamelCaseMotion_b
+            map <silent> e <Plug>CamelCaseMotion_e
+            sunmap w
+            sunmap b
+            sunmap e
         " }
 
         " syntastic {
