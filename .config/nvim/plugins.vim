@@ -21,7 +21,7 @@ Plug 'zchee/deoplete-jedi'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-grepper'
-Plug '~/.config/nvim/custom/jellybelly.vim'
+Plug 'C:\Users\brand\AppData\Local\nvim\custom\jellybelly.vim'
 call plug#end()
 
 " colors/looks {
@@ -110,13 +110,7 @@ let g:deoplete#omni_patterns.php =
 let g:deoplete#omni#input_patterns = get(g:, 'deoplete#omni#input_patterns', {})
 let g:deoplete#omni#input_patterns.python = ''
 
-call deoplete#custom#set('_', 'converters', [
-	\ 'converter_remove_paren',
-	\ 'converter_remove_overlap',
-	\ 'converter_truncate_abbr',
-	\ 'converter_truncate_menu',
-	\ 'converter_auto_delimiter',
-	\ ])
+
 
 " Movement within 'ins-completion-menu'
 imap <expr><C-j>   pumvisible() ? "\<C-n>" : "\<C-j>"
