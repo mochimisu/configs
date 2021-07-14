@@ -1,8 +1,33 @@
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
+" Undo completion
+inoremap <expr><C-g> deoplete#mappings#undo_completion()
+
+" Redraw candidates
+inoremap <expr><C-l> deoplete#mappings#refresh()
+
+" <C-h>, <BS>: close popup and delete backword char.
+"inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
+"inoremap <expr><BS>  deoplete#mappings#smart_close_popup()."\<C-h>"
+
+" <Tab> completion:
+" 1. If popup menu is visible, select and insert next item
+" 2. Otherwise, if within a snippet, jump to next input
+" 3. Otherwise, if preceding chars are whitespace, insert tab char
+" 4. Otherwise, start manual autocomplete
+imap <silent><expr><Tab> pumvisible() ? "\<C-n>"
+	\ : (<SID>is_whitespace() ? "\<Tab>"
+	\ : deoplete#mappings#manual_complete())
+
+smap <silent><expr><Tab> pumvisible() ? "\<C-n>"
+	\ : (<SID>is_whitespace() ? "\<Tab>"
+	\ : deoplete#mappings#manual_complete())
+
+
 call plug#begin()
-Plug 'nanotech/jellybeans.vim'
+"Plug 'nanotech/jellybeans.vim'
+Plug 'ayu-theme/ayu-vim'
 
 Plug 'Lokaltog/vim-easymotion'
 Plug 'bkad/CamelCaseMotion'
@@ -16,18 +41,29 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'edkolev/tmuxline.vim'
 
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-Plug 'zchee/deoplete-jedi'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-grepper'
-Plug 'C:\Users\brand\AppData\Local\nvim\custom\jellybelly.vim'
+"Plug '~/.config/nvim/custom/jellybelly.vim'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 " colors/looks {
-" colorscheme
-colorscheme jellybelly
-set background=dark
+    " colorscheme {
+        "colorscheme jellybelly
+        set termguicolors
+        let ayucolor="dark"
+        colorscheme ayu
+        set background=dark
+    " }
+
+    " IndentLine {
+        let g:indentLine_char = '|'
+        let g:indentLine_first_char = '|'
+        let g:indentLine_showFirstIndentLevel = 1
+        let g:indentLine_setColors = 0
+    " }
+
     " airline {
         let g:airline_powerline_fonts = 1
         let g:airline#extensions#tabline#enabled = 1
@@ -45,9 +81,7 @@ set background=dark
 " Key bindings {
 " <leader> is now space
 let mapleader = ' '
-
-" Deoplete
-let g:deoplete#enable_at_startup = 1
+" }
 
 " Plugin keybinds {
     " easymotion {
@@ -87,30 +121,6 @@ let g:deoplete#enable_at_startup = 1
     " }
 " }
 "d
-" deoplete for nvim
-" ---
-let g:deoplete#enable_camel_case = 1
-
-let g:deoplete#keyword_patterns = {}
-let g:deoplete#keyword_patterns._ = '[a-zA-Z_]\k*\(?'
-
-let g:deoplete#sources#go = 'vim-go'
-
-let g:deoplete#sources#jedi#enable_cache = 1
-let g:deoplete#sources#jedi#statement_length = 30
-let g:deoplete#sources#jedi#show_docstring = 1
-let g:deoplete#sources#jedi#short_types = 1
-
-let g:deoplete#omni#functions = get(g:, 'deoplete#omni#functions', {})
-let g:deoplete#omni#functions.php = 'phpcomplete_extended#CompletePHP'
-let g:deoplete#omni_patterns = get(g:, 'deoplete#omni_patterns', {})
-let g:deoplete#omni_patterns.php =
-	\ '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-
-let g:deoplete#omni#input_patterns = get(g:, 'deoplete#omni#input_patterns', {})
-let g:deoplete#omni#input_patterns.python = ''
-
-
 
 " Movement within 'ins-completion-menu'
 imap <expr><C-j>   pumvisible() ? "\<C-n>" : "\<C-j>"
@@ -121,29 +131,6 @@ inoremap <expr><C-f> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<Right>"
 inoremap <expr><C-b> pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<Left>"
 imap     <expr><C-d> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
 imap     <expr><C-u> pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
-
-" Undo completion
-inoremap <expr><C-g> deoplete#mappings#undo_completion()
-
-" Redraw candidates
-inoremap <expr><C-l> deoplete#mappings#refresh()
-
-" <C-h>, <BS>: close popup and delete backword char.
-"inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
-"inoremap <expr><BS>  deoplete#mappings#smart_close_popup()."\<C-h>"
-
-" <Tab> completion:
-" 1. If popup menu is visible, select and insert next item
-" 2. Otherwise, if within a snippet, jump to next input
-" 3. Otherwise, if preceding chars are whitespace, insert tab char
-" 4. Otherwise, start manual autocomplete
-imap <silent><expr><Tab> pumvisible() ? "\<C-n>"
-	\ : (<SID>is_whitespace() ? "\<Tab>"
-	\ : deoplete#mappings#manual_complete())
-
-smap <silent><expr><Tab> pumvisible() ? "\<C-n>"
-	\ : (<SID>is_whitespace() ? "\<Tab>"
-	\ : deoplete#mappings#manual_complete())
 
 inoremap <expr><S-Tab>  pumvisible() ? "\<C-p>" : "\<C-h>"
 

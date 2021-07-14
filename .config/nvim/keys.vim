@@ -14,3 +14,7 @@ nnoremap <leader>c "+y
 vnoremap <leader>c "+y
 nnoremap <leader>v "+p
 vnoremap <leader>v "+p
+map <A-w> <Up>
+map <A-a> <Left>
+map <A-s> <Down>
+map <A-d> <Right>

@@ -66,4 +66,7 @@
     syntax on
     " show tabs and trailing spaces
     set list listchars=tab:»·,trail:·
+    "}
+    
+    autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 expandtab
 " }
