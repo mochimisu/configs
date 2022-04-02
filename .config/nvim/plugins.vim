@@ -46,6 +46,12 @@ Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-grepper'
 "Plug '~/.config/nvim/custom/jellybelly.vim'
 Plug 'Yggdroot/indentLine'
+
+" for typescript
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+
 call plug#end()
 
 " colors/looks {
@@ -75,6 +81,18 @@ call plug#end()
         au Syntax * RainbowParenthesesLoadRound
         au Syntax * RainbowParenthesesLoadSquare
         au Syntax * RainbowParenthesesLoadBraces
+    " }
+
+    " tmuxline {
+        let g:tmuxline_preset = {
+            \'a'    : '#S',
+            \'b'    : '#W',
+            \'c'    : '#H',
+            \'win'  : '#I #W',
+            \'cwin' : '#I #W',
+            \'x'    : '%a',
+            \'y'    : '#W  %l:%M %p',
+            \'z'    : '#H'} 
     " }
 " }
 "
@@ -116,8 +134,27 @@ let mapleader = ' '
         nnoremap <Leader>rx :VimuxInterruptRunner<CR>
     " }
     " fzf {
-    nnoremap <C-P> :FZF<cr>
-    vnoremap <C-P> :FZF<cr>
+        nnoremap <C-P> :FZF<cr>
+        vnoremap <C-P> :FZF<cr>
+    " }
+
+    " grep {
+    "
+        let g:grepper = {
+                    \ 'dispatch': 1,
+                    \ 'quickfix': 1,
+                    \ 'open': 1,
+                    \ 'switch': 1,
+                    \ 'jump': 0,
+                    \ 'side': 1,
+                    \ 'tools': ['ag', 'ack', 'git', 'grep']
+                    \ }
+        command! -nargs=* -complete=file Grep Grepper -tool ag -query <args>
+        nmap <leader>* :Grep<Space>'\b<c-r><c-W>\b'<CR>
+        nnoremap <leader>g :Grep<Space>
+    " }
+    " coc {
+        runtime coc.vim
     " }
 " }
 "d
@@ -138,8 +175,3 @@ function! s:is_whitespace() "{{{
 	let col = col('.') - 1
 	return ! col || getline('.')[col - 1] =~? '\s'
 endfunction "}}}
-
-" grepper
-nnoremap <leader>git :Grepper -tool git -noswitch<cr>
-nnoremap <leader>ag  :Grepper -tool ag  -grepprg ag --vimgrep -G '^.+\.txt'<cr>
-nnoremap <leader>*   :Grepper -tool ack -cword -noprompt<cr>
