@@ -52,6 +52,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
+Plug 'github/copilot.vim'
+Plug 'lambdalisue/battery.vim'
+
 call plug#end()
 
 " colors/looks {
@@ -175,3 +178,7 @@ function! s:is_whitespace() "{{{
 	let col = col('.') - 1
 	return ! col || getline('.')[col - 1] =~? '\s'
 endfunction "}}}
+
+" show battery
+set statusline=...%{battery#component()}...
+set tabline=...%{battery#component()}...
