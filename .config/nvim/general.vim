@@ -60,6 +60,8 @@
     set ruler
     " show line numbers
     set number
+    " relative line numbers
+    set rnu
     " color the 80 char column
     set colorcolumn=80
     " syntax highlighting

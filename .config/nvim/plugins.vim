@@ -2,32 +2,33 @@ function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 " Undo completion
-inoremap <expr><C-g> deoplete#mappings#undo_completion()
-
-" Redraw candidates
-inoremap <expr><C-l> deoplete#mappings#refresh()
-
-" <C-h>, <BS>: close popup and delete backword char.
-"inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
-"inoremap <expr><BS>  deoplete#mappings#smart_close_popup()."\<C-h>"
-
-" <Tab> completion:
-" 1. If popup menu is visible, select and insert next item
-" 2. Otherwise, if within a snippet, jump to next input
-" 3. Otherwise, if preceding chars are whitespace, insert tab char
-" 4. Otherwise, start manual autocomplete
-imap <silent><expr><Tab> pumvisible() ? "\<C-n>"
-	\ : (<SID>is_whitespace() ? "\<Tab>"
-	\ : deoplete#mappings#manual_complete())
-
-smap <silent><expr><Tab> pumvisible() ? "\<C-n>"
-	\ : (<SID>is_whitespace() ? "\<Tab>"
-	\ : deoplete#mappings#manual_complete())
-
+" inoremap <expr><C-g> deoplete#mappings#undo_completion()
+"
+" " Redraw candidates
+" inoremap <expr><C-l> deoplete#mappings#refresh()
+"
+" " <C-h>, <BS>: close popup and delete backword char.
+" "inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
+" "inoremap <expr><BS>  deoplete#mappings#smart_close_popup()."\<C-h>"
+"
+" " <Tab> completion:
+" " 1. If popup menu is visible, select and insert next item
+" " 2. Otherwise, if within a snippet, jump to next input
+" " 3. Otherwise, if preceding chars are whitespace, insert tab char
+" " 4. Otherwise, start manual autocomplete
+" imap <silent><expr><Tab> pumvisible() ? "\<C-n>"
+" 	\ : (<SID>is_whitespace() ? "\<Tab>"
+" 	\ : deoplete#mappings#manual_complete())
+"
+" smap <silent><expr><Tab> pumvisible() ? "\<C-n>"
+" 	\ : (<SID>is_whitespace() ? "\<Tab>"
+" 	\ : deoplete#mappings#manual_complete())
+"
 
 call plug#begin()
 "Plug 'nanotech/jellybeans.vim'
-Plug 'ayu-theme/ayu-vim'
+"Plug 'ayu-theme/ayu-vim'
+Plug '~/.config/nvim/custom/ayu-vim'
 
 Plug 'Lokaltog/vim-easymotion'
 Plug 'bkad/CamelCaseMotion'
