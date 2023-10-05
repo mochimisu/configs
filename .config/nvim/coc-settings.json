@@ -1,12 +1,16 @@
 {
   "eslint.autoFixOnSave": true,
+  "tslint.autoFixOnSave": true,
   "eslint.filetypes": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "tslint.filetypes": ["typescript", "typescriptreact"],
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
+    "python"
   ],
   "tsserver.formatOnType": true,
-  "coc.preferences.formatOnType": true
+  "coc.preferences.formatOnType": true,
+  "typescript.autoClosingTags": false
 }

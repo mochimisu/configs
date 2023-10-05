@@ -27,10 +27,11 @@ endfunction
 
 call plug#begin()
 "Plug 'nanotech/jellybeans.vim'
-"Plug 'ayu-theme/ayu-vim'
-Plug '~/.config/nvim/custom/ayu-vim'
+Plug 'ayu-theme/ayu-vim'
+"Plug '~/.config/nvim/custom/ayu-vim'
 
 Plug 'Lokaltog/vim-easymotion'
+Plug 'folke/flash.nvim'
 Plug 'bkad/CamelCaseMotion'
 Plug 'tomtom/tcomment_vim'
 Plug 'benmills/vimux'
@@ -55,6 +56,8 @@ Plug 'peitalin/vim-jsx-typescript'
 
 Plug 'github/copilot.vim'
 Plug 'lambdalisue/battery.vim'
+
+Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
 
@@ -108,6 +111,10 @@ let mapleader = ' '
 " Plugin keybinds {
     " easymotion {
         let g:EasyMotion_leader_key = '<leader>'
+        let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
+    " }
+
+    " flash {
     " }
 
     " CamelCaseMotion {
