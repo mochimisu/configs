@@ -25,17 +25,15 @@ yellow = "#fa8419"
 background = "#000000"
 foreground = "#FFFFFF"
 
-[font.bold]
-family = "MesloLGS Nerd Font"
-style = "Bold"
-
-[font.italic]
-family = "MesloLGS Nerd Font"
-style = "Italic"
-
 [font.normal]
 family = "MesloLGS Nerd Font"
 style = "Regular"
+
+[font.bold]
+style = "Bold"
+
+[font.italic]
+style = "Italic"
 
 [[keyboard.bindings]]
 action = "ToggleFullscreen"
