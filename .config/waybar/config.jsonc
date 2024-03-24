@@ -1,0 +1,133 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top", // Waybar at top layer
+    "output": "!HDMI-A-1", // Output to display Waybar
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 30,
+    "spacing": 0, 
+    // Modules
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/mode",
+        "hyprland/scratchpad",
+        "custom/media",
+        "custom/pacman"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "memory",
+        "cpu",
+        "temperature#cpu",
+        "temperature#gpu",
+        "temperature#water",
+        "pulseaudio",
+        "network",
+        "tray",
+        "clock"
+    ],
+    //Modules configuration
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}: {icon}",
+        "format-icons": {
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
+    "custom/pacman": {
+      "format": "{icon}{}",
+      "return-type": "json",
+      "format-icons": {
+        "pending-updates": "  ",
+        "updated": ""
+      },
+      "exec-if": "which waybar-updates",
+      "exec": "waybar-updates"
+    },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "hyprland/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "hyprland/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%I:%M %p}"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature#cpu": {
+        "hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": "{temperatureC}°C {icon}🔥",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": [""]
+    },
+    "temperature#gpu": {
+        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": "{temperatureC}°C {icon}🔥",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["🖵"]
+    },
+    "temperature#water": {
+        "hwmon-path": "/sys/class/hwmon/hwmon8/temp1_input",
+        "critical-threshold": 40,
+        "format-critical": "{temperatureC}°C {icon}🔥",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["🌢"]
+    },
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "🖧",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "(No IP)",
+        "format-disconnected": "D/C ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+}
