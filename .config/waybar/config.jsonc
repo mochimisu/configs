@@ -10,8 +10,7 @@
         "hyprland/workspaces",
         "hyprland/mode",
         "hyprland/scratchpad",
-        "custom/media",
-        "custom/pacman"
+        "custom/media"
     ],
     "modules-center": [
         "hyprland/window"
@@ -24,6 +23,7 @@
         "temperature#water",
         "pulseaudio",
         "network",
+        "custom/pacman",
         "tray",
         "clock"
     ],
@@ -43,8 +43,8 @@
       "format": "{icon}{}",
       "return-type": "json",
       "format-icons": {
-        "pending-updates": "  ",
-        "updated": ""
+        "pending-updates": " ",
+        "updated": ""
       },
       "exec-if": "which waybar-updates",
       "exec": "waybar-updates"
