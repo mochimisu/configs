@@ -36,6 +36,6 @@ style = "Bold"
 style = "Italic"
 
 [[keyboard.bindings]]
-action = "ToggleFullscreen"
+action = "ToggleSimpleFullscreen"
 key = "Return"
-mods = "Alt"
+mods = "Super"
