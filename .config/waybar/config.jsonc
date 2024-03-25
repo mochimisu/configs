@@ -8,8 +8,6 @@
     // Modules
     "modules-left": [
         "hyprland/workspaces",
-        "hyprland/mode",
-        "hyprland/scratchpad",
         "custom/media"
     ],
     "modules-center": [
@@ -21,6 +19,7 @@
         "temperature#cpu",
         "temperature#gpu",
         "temperature#water",
+        "cava",
         "pulseaudio",
         "network",
         "custom/pacman",
@@ -58,16 +57,6 @@
             "unlocked": ""
         }
     },
-    "hyprland/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "hyprland/scratchpad": {
-        "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": ["", ""],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
-    },
     "tray": {
         "spacing": 10
     },
@@ -75,8 +64,28 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%I:%M %p}"
     },
+    "cava": {
+        "framerate": 60,
+        "autosens": 1,
+        "bars": 6,
+        "lower_cutoff_freq": 1,
+        "higher_cutoff_freq": 10000,
+        "method": "pulse",
+        "source": "auto",
+        "stereo": true,
+        "reverse": false,
+        "bar_delimiter": 0,
+        "monstercat": true,
+        "waves": false,
+        "noise_reduction": 0.1,
+        "input_delay": 0,
+        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "actions": {
+                   "on-click-right": "mode"
+                   }
+    },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "{usage}%",
         "tooltip": false
     },
     "memory": {
@@ -97,7 +106,7 @@
         "format-icons": ["🖵"]
     },
     "temperature#water": {
-        "hwmon-path": "/sys/class/hwmon/hwmon8/temp1_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon7/temp1_input",
         "critical-threshold": 40,
         "format-critical": "{temperatureC}°C {icon}🔥",
         "format": "{temperatureC}°C {icon}",
@@ -117,7 +126,7 @@
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+        "format-source": "",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",

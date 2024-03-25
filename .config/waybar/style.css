@@ -60,6 +60,7 @@
     color: @surface0;
 }
 
+#cava,
 #pulseaudio {
     background: @peach;
     color: @surface0;
@@ -75,11 +76,13 @@
 #clock {
     background: @sky;
     color: @surface0;
+    font-weight: 500;
 }
 
 /* Pill start */
 #cpu,
-#network {
+#network,
+#cava {
     border-radius: 1rem 0 0 1rem;
     padding: 0 0.25rem 0 1rem;
     margin-left: 0.3rem;
@@ -92,7 +95,8 @@
 
 /* Pill end */
 #temperature.cpu,
-#tray {
+#tray,
+#pulseaudio {
     border-radius: 0 1rem 1rem 0;
     padding: 0 1rem 0 0.25rem;
     margin-right: 0.3rem;
@@ -102,7 +106,6 @@
 #memory,
 #temperature.gpu,
 #temperature.water,
-#pulseaudio,
 #clock {
     border-radius: 1rem;
     padding: 0 1rem;
