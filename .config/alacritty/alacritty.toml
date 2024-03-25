@@ -1,5 +1,5 @@
 [font]
-size = 10.0
+size = 13.0
 
 [colors.bright]
 black = "#625e4c"
@@ -26,7 +26,7 @@ background = "#000000"
 foreground = "#FFFFFF"
 
 [font.normal]
-family = "MesloLGS Nerd Font"
+family = "Cascadia Code PL"
 style = "Regular"
 
 [font.bold]

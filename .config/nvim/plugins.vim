@@ -166,7 +166,10 @@ let mapleader = ' '
         nnoremap <leader>g :Grep<Space>
     " }
     " coc {
-        runtime coc.vim
+        if exists('g:vscode')
+        else
+            runtime coc.vim
+        endif
     " }
 " }
 "d
