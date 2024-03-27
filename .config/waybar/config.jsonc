@@ -92,21 +92,24 @@
         "format": "{}% "
     },
     "temperature#cpu": {
-        "hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
+        "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
+        "input-filename": "temp1_input",
         "critical-threshold": 80,
         "format-critical": "{temperatureC}°C {icon}🔥",
         "format": "{temperatureC}°C {icon}",
         "format-icons": [""]
     },
     "temperature#gpu": {
-        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+        "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:1d.0/0000:72:00.0/nvme/nvme1",
+        "input-filename": "temp1_input",
         "critical-threshold": 80,
         "format-critical": "{temperatureC}°C {icon}🔥",
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["🖵"]
     },
     "temperature#water": {
-        "hwmon-path": "/sys/class/hwmon/hwmon7/temp1_input",
+        "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:14.0/usb1/1-10/1-10.2/1-10.2.4/1-10.2.4:1.1/0003:0C70:F012.0008/hwmon",
+        "input-filename": "temp1_input",
         "critical-threshold": 40,
         "format-critical": "{temperatureC}°C {icon}🔥",
         "format": "{temperatureC}°C {icon}",
