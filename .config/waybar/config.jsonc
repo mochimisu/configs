@@ -24,6 +24,7 @@
         "network",
         "custom/pacman",
         "tray",
+        "battery",
         "clock"
     ],
     //Modules configuration
