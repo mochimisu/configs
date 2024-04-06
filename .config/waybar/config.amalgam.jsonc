@@ -16,11 +16,10 @@
     "modules-right": [
         "memory",
         "cpu",
-        "temperature",
         "cava",
         "pulseaudio",
         "network",
-        "custom/pacman",
+        "custom/dnf",
         "tray",
         "battery",
         "clock"
@@ -37,15 +36,16 @@
             "default": ""
         }
     },
-    "custom/pacman": {
+    "custom/dnf": {
       "format": "{icon}{}",
       "return-type": "json",
       "format-icons": {
         "pending-updates": " ",
         "updated": ""
       },
-      "exec-if": "which waybar-updates",
-      "exec": "waybar-updates"
+      "interval": 3600,
+      "exec-if": "which dnf",
+      "exec": "dnf check-update | ag -Ec ' updates$'"
     },
     "keyboard-state": {
         "numlock": true,
@@ -84,19 +84,11 @@
                    }
     },
     "cpu": {
-        "format": "{usage}%",
+        "format": "{usage}% ",
         "tooltip": false
     },
     "memory": {
         "format": "{}% "
-    },
-    "temperature": {
-        "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
-        "input-filename": "temp1_input",
-        "critical-threshold": 80,
-        "format-critical": "{temperatureC}°C {icon}🔥",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": [""]
     },
     "network": {
         "format-wifi": "",
@@ -125,4 +117,15 @@
         },
         "on-click": "pavucontrol"
     },
+    "battery": {
+        "interval": 60,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "max-length": 25
+    }
+
 }

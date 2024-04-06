@@ -73,6 +73,7 @@
     color: @surface0;
 }
 
+#battery,
 #clock {
     background: @sky;
     color: @surface0;
@@ -80,9 +81,9 @@
 }
 
 /* Pill start */
-#cpu,
 #network,
-#cava {
+#cava,
+#battery {
     border-radius: 1rem 0 0 1rem;
     padding: 0 0.25rem 0 1rem;
     margin-left: 0.3rem;
@@ -96,7 +97,8 @@
 /* Pill end */
 #temperature.cpu,
 #tray,
-#pulseaudio {
+#pulseaudio,
+#clock {
     border-radius: 0 1rem 1rem 0;
     padding: 0 1rem 0 0.25rem;
     margin-right: 0.3rem;
@@ -106,7 +108,7 @@
 #memory,
 #temperature.gpu,
 #temperature.water,
-#clock {
+#cpu {
     border-radius: 1rem;
     padding: 0 1rem;
     margin: 0 0.3rem;
