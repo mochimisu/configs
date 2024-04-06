@@ -1,0 +1,128 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top", // Waybar at top layer
+    "output": "!HDMI-A-1", // Output to display Waybar
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 30,
+    "spacing": 0, 
+    // Modules
+    "modules-left": [
+        "hyprland/workspaces",
+        "custom/media"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "memory",
+        "cpu",
+        "temperature",
+        "cava",
+        "pulseaudio",
+        "network",
+        "custom/pacman",
+        "tray",
+        "battery",
+        "clock"
+    ],
+    //Modules configuration
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}: {icon}",
+        "format-icons": {
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
+    "custom/pacman": {
+      "format": "{icon}{}",
+      "return-type": "json",
+      "format-icons": {
+        "pending-updates": " ",
+        "updated": ""
+      },
+      "exec-if": "which waybar-updates",
+      "exec": "waybar-updates"
+    },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%I:%M %p}"
+    },
+    "cava": {
+        "framerate": 60,
+        "autosens": 1,
+        "bars": 6,
+        "lower_cutoff_freq": 1,
+        "higher_cutoff_freq": 10000,
+        "method": "pulse",
+        "source": "auto",
+        "stereo": true,
+        "reverse": false,
+        "bar_delimiter": 0,
+        "monstercat": true,
+        "waves": false,
+        "noise_reduction": 0.1,
+        "input_delay": 0,
+        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "actions": {
+                   "on-click-right": "mode"
+                   }
+    },
+    "cpu": {
+        "format": "{usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature": {
+        "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
+        "input-filename": "temp1_input",
+        "critical-threshold": 80,
+        "format-critical": "{temperatureC}°C {icon}🔥",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": [""]
+    },
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "🖧",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "(No IP)",
+        "format-disconnected": "D/C ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+}
