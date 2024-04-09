@@ -73,6 +73,11 @@
     color: @surface0;
 }
 
+#battery {
+    background: @teal;
+    color: @surface0;
+}
+
 #clock {
     background: @sky;
     color: @surface0;
@@ -80,7 +85,6 @@
 }
 
 /* Pill start */
-#cpu,
 #network,
 #cava {
     border-radius: 1rem 0 0 1rem;
@@ -103,9 +107,11 @@
 }
 
 /* Pill single */
+#cpu,
 #memory,
 #temperature.gpu,
 #temperature.water,
+#battery,
 #clock {
     border-radius: 1rem;
     padding: 0 1rem;

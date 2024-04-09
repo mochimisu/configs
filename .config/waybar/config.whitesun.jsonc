@@ -124,6 +124,17 @@
         "format-disconnected": "D/C ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
+    "battery": {
+        "bat": "ps-controller-battery-58:10:31:1d:a2:43",
+        "interval": 60,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "max-length": 25
+    },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
