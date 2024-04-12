@@ -1,0 +1,119 @@
+@import "mocha.css";
+
+* {
+    font-size: 14px;
+    min-height: 0;
+}
+
+#waybar {
+    background: transparent;
+    color: @text;
+}
+
+#workspaces {
+    background-color: @surface0;
+    border-radius: 1rem;
+    padding: 0 0.5rem;
+    margin-left: 0.1rem
+}
+
+#workspaces button {
+    color: @lavender;
+    border-radius: 1rem;
+    padding: 0 0.5rem;
+    margin: 0 0.25rem;
+}
+
+#workspaces button.active {
+    color: @sky;
+}
+
+#workspaces button:hover {
+    color: @sapphire;
+}
+
+
+#waybar box box.modules-center {
+    font-weight: bold;
+    text-shadow: -1px -1px 0 rgba(0,0,0,0.5), 1px -1px 0 rgba(0,0,0,0.5), -1px 1px 0 rgba(0,0,0,0.5), 1px 1px 0 rgba(0,0,0,0.5);
+}
+
+/* Colors */
+#cpu,
+#temperature.cpu {
+    background: @sapphire;
+    color: @surface0;
+}
+
+#memory {
+    background: @yellow;
+    color: @surface0;
+}
+
+#temperature.gpu {
+    background: @green;
+    color: @surface0;
+}
+
+#temperature.water {
+    background: @blue;
+    color: @surface0;
+}
+
+#cava,
+#pulseaudio {
+    background: @peach;
+    color: @surface0;
+}
+
+#network,
+#tray,
+#custom-pacman {
+    background: @rosewater;
+    color: @surface0;
+}
+
+#battery,
+#clock {
+    background: @sky;
+    color: @surface0;
+    font-weight: 500;
+}
+
+/* Pill start */
+#network,
+#cava,
+#battery {
+    border-radius: 1rem 0 0 1rem;
+    padding: 0 0.25rem 0 1rem;
+    margin-left: 0.3rem;
+}
+
+/* Pill middle */
+#custom-pacman {
+    padding: 0 0.25rem;
+}
+
+/* Pill end */
+#temperature.cpu,
+#tray,
+#pulseaudio,
+#clock {
+    border-radius: 0 1rem 1rem 0;
+    padding: 0 1rem 0 0.25rem;
+    margin-right: 0.3rem;
+}
+
+/* Pill single */
+#memory,
+#temperature.gpu,
+#temperature.water,
+#cpu {
+    border-radius: 1rem;
+    padding: 0 1rem;
+    margin: 0 0.3rem;
+}
+
+#tray widget image {
+    -gtk-icon-shadow: -0.5px -0.5px #333, 0.5px -0.5px #333, -0.5px 0.5px #333, 0.5px 0.5px #333;
+}
