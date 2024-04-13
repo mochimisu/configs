@@ -12,9 +12,12 @@
 
 #workspaces {
     background-color: @surface0;
-    border-radius: 1rem;
     padding: 0 0.5rem;
-    margin-left: 0.1rem
+}
+
+#window {
+    background-color: @surface1;
+    padding: 0 0.5rem;
 }
 
 #workspaces button {
@@ -80,38 +83,19 @@
     font-weight: 500;
 }
 
-/* Pill start */
 #network,
 #cava,
-#battery {
-    border-radius: 1rem 0 0 1rem;
-    padding: 0 0.25rem 0 1rem;
-    margin-left: 0.3rem;
-}
-
-/* Pill middle */
-#custom-pacman {
-    padding: 0 0.25rem;
-}
-
-/* Pill end */
+#battery,
+#custom-pacman,
 #temperature.cpu,
 #tray,
 #pulseaudio,
-#clock {
-    border-radius: 0 1rem 1rem 0;
-    padding: 0 1rem 0 0.25rem;
-    margin-right: 0.3rem;
-}
-
-/* Pill single */
+#clock,
 #memory,
 #temperature.gpu,
 #temperature.water,
 #cpu {
-    border-radius: 1rem;
-    padding: 0 1rem;
-    margin: 0 0.3rem;
+    padding: 0 0.75rem;
 }
 
 #tray widget image {
