@@ -21,6 +21,7 @@
         "network",
         "custom/pacman",
         "tray",
+        "custom/wattage",
         "battery",
         "clock"
     ],
@@ -86,7 +87,7 @@
                    }
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "{usage}%",
         "tooltip": false
     },
     "memory": {
@@ -127,6 +128,11 @@
         },
         "on-click": "pavucontrol"
     },
+    "custom/wattage": {
+        "exec": "echo $(( `cat /sys/devices/pci0000:00/0000:00:08.1/0000:63:00.0/hwmon/hwmon*/power1_input` / 1000000 ))",
+        "format": "{} W",
+        "interval": 5
+    },
     "battery": {
         "interval": 60,
         "states": {
@@ -134,7 +140,6 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-icons": ["", "", "", "", ""],
-        "max-length": 25
+        "format-icons": ["", "", "", "", ""]
     }
 }

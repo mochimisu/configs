@@ -77,6 +77,11 @@
 }
 
 #battery,
+#custom-wattage {
+    background: @lavender;
+    color: @surface0;
+}
+
 #clock {
     background: @sky;
     color: @surface0;
@@ -94,6 +99,7 @@
 #memory,
 #temperature.gpu,
 #temperature.water,
+#custom-wattage,
 #cpu {
     padding: 0 0.75rem;
 }
