@@ -41,7 +41,7 @@
         }
     },
     "custom/pacman": {
-      "format": "{icon}{}",
+      "format": "{icon} {}",
       "return-type": "json",
       "format-icons": {
         "pending-updates": " ",
@@ -140,6 +140,7 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% {icon}⚡",
         "format-icons": ["", "", "", "", ""]
     }
 }

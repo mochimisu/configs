@@ -104,6 +104,17 @@
     padding: 0 0.75rem;
 }
 
+#cpu,
+#custom-wattage {
+    padding: 0 0.25rem 0 0.75rem;
+}
+
+#temperature.cpu,
+#battery {
+    padding: 0 0.75rem 0 0.25rem;
+}
+
+
 #tray widget image {
     -gtk-icon-shadow: -0.5px -0.5px #333, 0.5px -0.5px #333, -0.5px 0.5px #333, 0.5px 0.5px #333;
 }
