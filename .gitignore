@@ -1,4 +1,5 @@
 nvim/local.vim
 .config/hypr/local.conf
+.config/hypr/hyprpaper.conf
 .config/waybar/config.conf
 .config/waybar/style.css
